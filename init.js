@@ -1,30 +1,86 @@
-db = db.getSiblingDB('carCards');
+db.createUser({
+  user: 'quiz_admin',
+  pwd: 'werwirdmillionaer',
+  roles: [
+    {
+      role: 'readWrite',
+      db: 'm165_quiz',
+    },
+  ],
+});
 
-db.createCollection('car');
+db = db.getSiblingDB('m165_quiz');
 
-db.car.insertMany([
+db.createCollection('questions');
+db.createCollection('quiz');
+db.createCollection('games');
+
+db.quiz.insertMany([
   {
-    "imageUrl": "images/Auto.png",
-    "tradeName": "Audi",
-    "model": "Flaschback 300",
-    "prize": 50000
+    "id": 1,
+    "name": "Software Engineer Quiz",
+    "createdBy": "Noah G. (Nevah5)",
+  },
+]);
+db.questions.insertMany([
+  {
+    "id": 1,
+    "quizId": 1,
+    "q": "What is VSC?",
+    "a1": "Visual Slider Collision",
+    "a2": "Very Silly Code",
+    "a3": "Visual Studio Code",
+    "a4": "Vamos Siuuuu Christiano",
+    "c": "a3",
   },
   {
-    "imageUrl": "images/Auto.png",
-    "tradeName": "Opel",
-    "model": "Manta SE",
-    "prize": 20000
+    "id": 2,
+    "quizId": 1,
+    "q": "How many times should you commit?",
+    "a1": "after every character",
+    "a2": "after a small part of code",
+    "a3": "every day",
+    "a4": "after a feature or bugfix",
+    "c": "a4",
   },
   {
-    "imageUrl": "images/Auto.png",
-    "tradeName": "VW",
-    "model": "Golf GL",
-    "prize": 12000
+    "id": 3,
+    "quizId": 1,
+    "q": "PHP...",
+    "a1": "...is a script-language.",
+    "a2": "...is ran in the browser.",
+    "a3": "...is barely used anymore.",
+    "a4": "...is reactive.",
+    "c": "a1",
   },
   {
-    "imageUrl": "images/Auto.png",
-    "tradeName": "Fiat",
-    "model": "500",
-    "prize": 15000
-  }
+    "id": 4,
+    "quizId": 1,
+    "q": "MongoDB is like...",
+    "a1": "...MariaDB.",
+    "a2": "...Firebase Firestore.",
+    "a3": "...SQL.",
+    "a4": "...Financing.",
+    "c": "a1",
+  },
+  {
+    "id": 14,
+    "quizId": 1,
+    "q": "What is the oldest programming language?",
+    "a1": "Fortran",
+    "a2": "Assembly",
+    "a3": "C",
+    "a4": "Cobol",
+    "c": "a2",
+  },
+  {
+    "id": 15,
+    "quizId": 1,
+    "q": "When was the \"first appearance\" of Assembly?",
+    "a1": "1950",
+    "a2": "1944",
+    "a3": "1947",
+    "a4": "1965",
+    "c": "a3",
+  },
 ]);
