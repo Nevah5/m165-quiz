@@ -30,7 +30,7 @@ db.questions.insertMany([
     "a2": "Very Silly Code",
     "a3": "Visual Studio Code",
     "a4": "Vamos Siuuuu Christiano",
-    "c": "a3",
+    "c": 3,
   },
   {
     "quizId": 1,
@@ -39,7 +39,7 @@ db.questions.insertMany([
     "a2": "after a small part of code",
     "a3": "every day",
     "a4": "after a feature or bugfix",
-    "c": "a4",
+    "c": 4,
   },
   {
     "quizId": 1,
@@ -48,7 +48,7 @@ db.questions.insertMany([
     "a2": "...is ran in the browser.",
     "a3": "...is barely used anymore.",
     "a4": "...is reactive.",
-    "c": "a1",
+    "c": 1,
   },
   {
     "quizId": 1,
@@ -57,7 +57,7 @@ db.questions.insertMany([
     "a2": "...Firebase Firestore.",
     "a3": "...SQL.",
     "a4": "...Financing.",
-    "c": "a1",
+    "c": 1,
   },
   {
     "quizId": 1,
@@ -66,7 +66,7 @@ db.questions.insertMany([
     "a2": "Assembly",
     "a3": "C",
     "a4": "Cobol",
-    "c": "a2",
+    "c": 2,
   },
   {
     "quizId": 1,
@@ -75,6 +75,6 @@ db.questions.insertMany([
     "a2": "1944",
     "a3": "1947",
     "a4": "1965",
-    "c": "a3",
+    "c": 3,
   },
 ]);
