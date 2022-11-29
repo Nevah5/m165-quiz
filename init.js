@@ -1,3 +1,5 @@
+db = db.getSiblingDB('m165_quiz');
+
 db.createUser({
   user: 'quiz_admin',
   pwd: 'werwirdmillionaer',
@@ -8,8 +10,6 @@ db.createUser({
     },
   ],
 });
-
-db = db.getSiblingDB('m165_quiz');
 
 db.createCollection('questions');
 db.createCollection('quiz');
