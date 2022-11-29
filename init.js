@@ -24,7 +24,6 @@ db.quiz.insertMany([
 ]);
 db.questions.insertMany([
   {
-    "id": 1,
     "quizId": 1,
     "q": "What is VSC?",
     "a1": "Visual Slider Collision",
@@ -34,7 +33,6 @@ db.questions.insertMany([
     "c": "a3",
   },
   {
-    "id": 2,
     "quizId": 1,
     "q": "How many times should you commit?",
     "a1": "after every character",
@@ -44,7 +42,6 @@ db.questions.insertMany([
     "c": "a4",
   },
   {
-    "id": 3,
     "quizId": 1,
     "q": "PHP...",
     "a1": "...is a script-language.",
@@ -54,7 +51,6 @@ db.questions.insertMany([
     "c": "a1",
   },
   {
-    "id": 4,
     "quizId": 1,
     "q": "MongoDB is like...",
     "a1": "...MariaDB.",
@@ -64,7 +60,6 @@ db.questions.insertMany([
     "c": "a1",
   },
   {
-    "id": 14,
     "quizId": 1,
     "q": "What is the oldest programming language?",
     "a1": "Fortran",
@@ -74,7 +69,6 @@ db.questions.insertMany([
     "c": "a2",
   },
   {
-    "id": 15,
     "quizId": 1,
     "q": "When was the \"first appearance\" of Assembly?",
     "a1": "1950",
