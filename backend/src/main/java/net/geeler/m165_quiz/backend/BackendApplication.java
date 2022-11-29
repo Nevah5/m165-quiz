@@ -1,13 +1,13 @@
-package net.geeler.m165_quiz;
+package net.geeler.m165_quiz.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class M165QuizApplication {
+public class BackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(M165QuizApplication.class, args);
+        SpringApplication.run(BackendApplication.class, args);
     }
 
 }
