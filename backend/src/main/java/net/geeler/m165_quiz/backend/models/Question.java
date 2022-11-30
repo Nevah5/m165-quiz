@@ -18,6 +18,10 @@ public class Question {
     private String quizId;
     @Getter
     @NonNull
+    @Field("n")
+    private Integer questionNumber;
+    @Getter
+    @NonNull
     @Field("q")
     private String question;
     @Getter
@@ -40,4 +44,11 @@ public class Question {
     @NonNull
     @Field("c")
     private Integer correct;
+
+    /**
+     * If a question is requested separately, it shouldn't return the correct answer. Logic is handled by the API.
+     */
+    public QuestionResponse getRequestResponse(){
+        return new QuestionResponse(this);
+    }
 }
