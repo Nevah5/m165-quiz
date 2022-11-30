@@ -12,10 +12,10 @@ db.createUser({
 });
 
 db.createCollection('questions');
-db.createCollection('quiz');
+db.createCollection('quizzes');
 db.createCollection('games');
 
-db.quiz.insertMany([
+db.quizzes.insertMany([
   {
     "_id": "63877b982bd515acf41f4743",
     "name": "Software Engineer Quiz",
