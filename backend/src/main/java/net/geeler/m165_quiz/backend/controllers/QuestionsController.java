@@ -1,10 +1,15 @@
 package net.geeler.m165_quiz.backend.controllers;
 
+import com.google.gson.Gson;
 import net.geeler.m165_quiz.backend.models.Question;
 import net.geeler.m165_quiz.backend.repositories.QuestionsRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 public class QuestionsController {
@@ -13,11 +18,10 @@ public class QuestionsController {
         this.questionsRepository = questionsRepository;
     }
     @GetMapping("/question/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public String getQuestionById(@PathVariable String id){
         Question foundQuestion = questionsRepository.findQuestionById(id);
-        if(foundQuestion == null) return "Not Found";
-        String response = String.format("Quiz: %s<br />Question: %s<br /><br />%s<br />%s<br />%s<br />%s", foundQuestion.getQuizId(), foundQuestion.getQuestion(), foundQuestion.getAnswer1(), foundQuestion.getAnswer2(), foundQuestion.getAnswer3(),foundQuestion.getAnswer4());
-        System.out.println(response);
-        return response;
+        if(foundQuestion == null) throw new ResponseStatusException(HttpStatusCode.valueOf(404), "This question was not found.");
+        return new Gson().toJson(foundQuestion.getRequestResponse());
     }
 }
