@@ -6,8 +6,6 @@ public class QuestionResponse {
     @Setter
     private String id;
     @Setter
-    private Integer questionNumber;
-    @Setter
     private String question;
     @Setter
     private String answer1;
@@ -20,7 +18,6 @@ public class QuestionResponse {
 
     public QuestionResponse(Question question){
         this.id = question.getId();
-        this.questionNumber = question.getQuestionNumber();
         this.question = question.getQuestion();
         this.answer1 = question.getAnswer1();
         this.answer2 = question.getAnswer2();

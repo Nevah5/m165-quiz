@@ -17,10 +17,10 @@ public class QuestionsController {
     public QuestionsController(QuestionsRepository questionsRepository){
         this.questionsRepository = questionsRepository;
     }
-    @GetMapping("/question/{id}")
+    @GetMapping(value = "/quiz/{quizId}/question/{questionNumber}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public String getQuestionById(@PathVariable String id){
-        Question foundQuestion = questionsRepository.findQuestionById(id);
+    public String getQuestionById(@PathVariable String quizId, @PathVariable Integer questionNumber){
+        Question foundQuestion = questionsRepository.findQuestionByQuizIdIsAndQuestionNumber(quizId, questionNumber);
         if(foundQuestion == null) throw new ResponseStatusException(HttpStatusCode.valueOf(404), "This question was not found.");
         return new Gson().toJson(foundQuestion.getRequestResponse());
     }
