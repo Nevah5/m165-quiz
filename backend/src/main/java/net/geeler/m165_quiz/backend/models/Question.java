@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "questions")
 public class Question {
@@ -17,20 +18,26 @@ public class Question {
     private String quizId;
     @Getter
     @NonNull
-    private String q;
+    @Field("q")
+    private String question;
     @Getter
     @NonNull
-    private String a1;
+    @Field("a1")
+    private String answer1;
     @Getter
     @NonNull
-    private String a2;
+    @Field("a2")
+    private String answer2;
     @Getter
     @NonNull
-    private String a3;
+    @Field("a3")
+    private String answer3;
     @Getter
     @NonNull
-    private String a4;
+    @Field("a4")
+    private String answer4;
     @Getter
     @NonNull
-    private Integer c;
+    @Field("c")
+    private Integer correct;
 }

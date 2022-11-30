@@ -16,7 +16,7 @@ public class QuestionsController {
     public String getQuestionById(@PathVariable String id){
         Question foundQuestion = questionsRepository.findQuestionById(id);
         if(foundQuestion == null) return "Not Found";
-        String response = String.format("Quiz: %s<br />Question: %s<br /><br />%s<br />%s<br />%s<br />%s", foundQuestion.getQuizId(), foundQuestion.getQ(), foundQuestion.getA1(), foundQuestion.getA2(), foundQuestion.getA3(),foundQuestion.getA4());
+        String response = String.format("Quiz: %s<br />Question: %s<br /><br />%s<br />%s<br />%s<br />%s", foundQuestion.getQuizId(), foundQuestion.getQuestion(), foundQuestion.getAnswer1(), foundQuestion.getAnswer2(), foundQuestion.getAnswer3(),foundQuestion.getAnswer4());
         System.out.println(response);
         return response;
     }
