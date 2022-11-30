@@ -1,39 +1,36 @@
 package net.geeler.m165_quiz.backend.models;
 
+import lombok.Generated;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.Setter;
-import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "questions")
 public class Question {
     @Id
+    @Generated
     @Getter
-    @Setter
-    private Integer id;
+    private String id;
+    @Getter
     @NonNull
+    private String quizId;
     @Getter
-    @Setter
-    private Integer quizId;
-    //questions
     @NonNull
+    private String q;
     @Getter
-    @Setter
-    private String q1;
-    @Getter
-    @Setter
     @NonNull
-    private String q2;
+    private String a1;
     @Getter
-    @Setter
     @NonNull
-    private String q3;
+    private String a2;
     @Getter
-    @Setter
     @NonNull
-    private String q4;
+    private String a3;
     @Getter
-    @Setter
     @NonNull
-    private Integer c; //correct answer
+    private String a4;
+    @Getter
+    @NonNull
+    private Integer c;
 }
