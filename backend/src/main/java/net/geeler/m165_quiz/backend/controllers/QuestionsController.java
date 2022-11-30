@@ -15,10 +15,9 @@ public class QuestionsController {
     @GetMapping("/question/{id}")
     public String getQuestionById(@PathVariable String id){
         Question foundQuestion = questionsRepository.findQuestionById(id);
-        Double r = Math.floor(Math.random() * 10);
-        if(r >= 0 && r < 2.5) return foundQuestion.getQ1();
-        if(r >= 2.5 && r < 5) return foundQuestion.getQ2();
-        if(r >= 5 && r < 7.5) return foundQuestion.getQ3();
-        return foundQuestion.getQ4();
+        if(foundQuestion == null) return "Not Found";
+        String response = String.format("Quiz: %s<br />Question: %s<br /><br />%s<br />%s<br />%s<br />%s", foundQuestion.getQuizId(), foundQuestion.getQ(), foundQuestion.getA1(), foundQuestion.getA2(), foundQuestion.getA3(),foundQuestion.getA4());
+        System.out.println(response);
+        return response;
     }
 }
