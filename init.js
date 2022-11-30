@@ -17,14 +17,15 @@ db.createCollection('games');
 
 db.quiz.insertMany([
   {
-    "id": 1,
+    "_id": "63877b982bd515acf41f4743",
     "name": "Software Engineer Quiz",
     "createdBy": "Noah G. (Nevah5)",
   },
 ]);
 db.questions.insertMany([
   {
-    "quizId": 1,
+    "n": 1,
+    "quizId": "63877b982bd515acf41f4743",
     "q": "What is VSC?",
     "a1": "Visual Slider Collision",
     "a2": "Very Silly Code",
@@ -33,7 +34,8 @@ db.questions.insertMany([
     "c": 3,
   },
   {
-    "quizId": 1,
+    "n": 2,
+    "quizId": "63877b982bd515acf41f4743",
     "q": "How many times should you commit?",
     "a1": "after every character",
     "a2": "after a small part of code",
@@ -42,7 +44,8 @@ db.questions.insertMany([
     "c": 4,
   },
   {
-    "quizId": 1,
+    "n": 3,
+    "quizId": "63877b982bd515acf41f4743",
     "q": "PHP...",
     "a1": "...is a script-language.",
     "a2": "...is ran in the browser.",
@@ -51,7 +54,8 @@ db.questions.insertMany([
     "c": 1,
   },
   {
-    "quizId": 1,
+    "n": 4,
+    "quizId": "63877b982bd515acf41f4743",
     "q": "MongoDB is like...",
     "a1": "...MariaDB.",
     "a2": "...Firebase Firestore.",
@@ -60,7 +64,8 @@ db.questions.insertMany([
     "c": 1,
   },
   {
-    "quizId": 1,
+    "n": 14,
+    "quizId": "63877b982bd515acf41f4743",
     "q": "What is the oldest programming language?",
     "a1": "Fortran",
     "a2": "Assembly",
@@ -69,7 +74,8 @@ db.questions.insertMany([
     "c": 2,
   },
   {
-    "quizId": 1,
+    "n": 15,
+    "quizId": "63877b982bd515acf41f4743",
     "q": "When was the \"first appearance\" of Assembly?",
     "a1": "1950",
     "a2": "1944",
