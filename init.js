@@ -22,6 +22,18 @@ db.quizzes.insertMany([
     "createdBy": "Noah G. (Nevah5)",
     "createdOn": 1669876220,
   },
+  {
+    "_id": "638867df7af39a86ab5e23c1",
+    "name": "Autos Quiz",
+    "createdBy": "Noah G. (Nevah5)",
+    "createdOn": 1669880300
+  },
+  {
+    "_id": "6388690a7af39a86ab5e23c2",
+    "name": "Language Quiz",
+    "createdBy": "Noah G. (Nevah5)",
+    "createdOn": 1669880564
+  },
 ]);
 db.questions.insertMany([
   {

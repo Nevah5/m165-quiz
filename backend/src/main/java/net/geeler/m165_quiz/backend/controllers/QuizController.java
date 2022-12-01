@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -34,5 +36,13 @@ public class QuizController {
         Quiz foundQuiz = quizRepository.findQuizById(id);
         if(foundQuiz == null) throw new ResponseStatusException(HttpStatusCode.valueOf(404), "This quiz was not found.");
         return new Gson().toJson(foundQuiz);
+    }
+
+    @GetMapping(value = "/quiz/top", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public String getNewestQuiz(){
+        List<Quiz> foundQuizzes = quizRepository.findAll();
+        Collections.sort(foundQuizzes, (q1, q2) -> q2.getCreatedOn()- q1.getCreatedOn());
+        return new Gson().toJson(foundQuizzes.get(0));
     }
 }
