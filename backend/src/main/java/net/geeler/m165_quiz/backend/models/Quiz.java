@@ -20,4 +20,7 @@ public class Quiz {
     @Getter
     @NonNull
     private String createdBy;
+    @Getter
+    @NonNull
+    private Integer createdOn;
 }

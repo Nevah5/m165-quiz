@@ -20,6 +20,7 @@ db.quizzes.insertMany([
     "_id": "63877b982bd515acf41f4743",
     "name": "Software Engineer Quiz",
     "createdBy": "Noah G. (Nevah5)",
+    "createdOn": 1669876220,
   },
 ]);
 db.questions.insertMany([
