@@ -32,4 +32,12 @@ public class QuestionsController {
         if(foundQuestion == null) throw new ResponseStatusException(HttpStatusCode.valueOf(404), "This question was not found.");
         return new Gson().toJson(foundQuestion.getRequestResponse());
     }
+
+    @GetMapping(value = "/question/{id}/check/{guess}", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public String checkQuestionAnswer(@PathVariable String id, @PathVariable Integer guess){
+        Question foundQuestion = questionsRepository.findQuestionById(id);
+        if(foundQuestion == null) throw new ResponseStatusException(HttpStatusCode.valueOf(404), "This question was not found.");
+        return new Gson().toJson(foundQuestion.getCorrectResponse(guess));
+    }
 }

@@ -6,14 +6,12 @@ import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Document(collection = "questions")
 public class Question {
     @Id
     @Generated
     @Getter
-    @MongoId
     private String id;
     @Getter
     @NonNull
@@ -52,5 +50,12 @@ public class Question {
      */
     public QuestionResponse getRequestResponse(){
         return new QuestionResponse(this);
+    }
+
+    /**
+     * If checking response returns if is correct or wrong.
+     */
+    public CorrectResponse getCorrectResponse(Integer guessed){
+        return new CorrectResponse(guessed, this);
     }
 }
