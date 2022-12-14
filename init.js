@@ -17,19 +17,19 @@ db.createCollection('games');
 
 db.quizzes.insertMany([
   {
-    "_id": "63877b982bd515acf41f4743",
+    "_id": new ObjectId("63877b982bd515acf41f4743"),
     "name": "Software Engineer Quiz",
     "createdBy": "Noah G. (Nevah5)",
     "createdOn": 1669876220,
   },
   {
-    "_id": "638867df7af39a86ab5e23c1",
+    "_id": new ObjectId("638867df7af39a86ab5e23c1"),
     "name": "Autos Quiz",
     "createdBy": "Noah G. (Nevah5)",
     "createdOn": 1669880300
   },
   {
-    "_id": "6388690a7af39a86ab5e23c2",
+    "_id": new ObjectId("6388690a7af39a86ab5e23c2"),
     "name": "Language Quiz",
     "createdBy": "Noah G. (Nevah5)",
     "createdOn": 1669880564
