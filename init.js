@@ -21,18 +21,34 @@ db.quizzes.insertMany([
     "name": "Software Engineer Quiz",
     "createdBy": "Noah G. (Nevah5)",
     "createdOn": 1669876220,
+    "tags": [
+      "programming",
+      "code",
+      "software",
+      "computer"
+    ]
   },
   {
     "_id": new ObjectId("638867df7af39a86ab5e23c1"),
     "name": "Autos Quiz",
     "createdBy": "Noah G. (Nevah5)",
-    "createdOn": 1669880300
+    "createdOn": 1669880300,
+    "tags": [
+      "cars",
+      "autos",
+      "ferrari",
+      "lamborghini",
+    ]
   },
   {
     "_id": new ObjectId("6388690a7af39a86ab5e23c2"),
     "name": "Language Quiz",
     "createdBy": "Noah G. (Nevah5)",
-    "createdOn": 1669880564
+    "createdOn": 1669880564,
+    "tags": [
+      "language",
+      "life",
+    ],
   },
 ]);
 db.questions.insertMany([
