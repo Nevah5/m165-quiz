@@ -1,4 +1,4 @@
-package net.geeler.m165_quiz.backend.models;
+package dev.nevah5.m165_quiz.backend.models;
 
 import lombok.Setter;
 

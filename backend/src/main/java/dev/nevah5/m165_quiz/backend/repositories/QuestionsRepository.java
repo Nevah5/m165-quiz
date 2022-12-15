@@ -1,6 +1,6 @@
-package net.geeler.m165_quiz.backend.repositories;
+package dev.nevah5.m165_quiz.backend.repositories;
 
-import net.geeler.m165_quiz.backend.models.Question;
+import dev.nevah5.m165_quiz.backend.models.Question;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

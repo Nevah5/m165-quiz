@@ -1,4 +1,4 @@
-package net.geeler.m165_quiz.backend.models;
+package dev.nevah5.m165_quiz.backend.models;
 
 public class CorrectResponse {
     private Boolean answer = false;

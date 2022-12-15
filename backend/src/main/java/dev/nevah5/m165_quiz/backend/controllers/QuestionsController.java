@@ -1,8 +1,8 @@
-package net.geeler.m165_quiz.backend.controllers;
+package dev.nevah5.m165_quiz.backend.controllers;
 
 import com.google.gson.Gson;
-import net.geeler.m165_quiz.backend.models.Question;
-import net.geeler.m165_quiz.backend.repositories.QuestionsRepository;
+import dev.nevah5.m165_quiz.backend.models.Question;
+import dev.nevah5.m165_quiz.backend.repositories.QuestionsRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.GetMapping;

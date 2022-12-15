@@ -1,8 +1,8 @@
-package net.geeler.m165_quiz.backend.controllers;
+package dev.nevah5.m165_quiz.backend.controllers;
 
 import com.google.gson.Gson;
-import net.geeler.m165_quiz.backend.models.Quiz;
-import net.geeler.m165_quiz.backend.repositories.QuizRepository;
+import dev.nevah5.m165_quiz.backend.models.Quiz;
+import dev.nevah5.m165_quiz.backend.repositories.QuizRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @RestController

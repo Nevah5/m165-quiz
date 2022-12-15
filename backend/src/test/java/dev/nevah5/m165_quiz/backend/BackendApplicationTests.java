@@ -1,4 +1,4 @@
-package net.geeler.m165_quiz.backend;
+package dev.nevah5.m165_quiz.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
