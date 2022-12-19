@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
+@CrossOrigin("http://localhost")
 public class QuestionsController {
     QuestionsRepository questionsRepository;
     public QuestionsController(QuestionsRepository questionsRepository){
         this.questionsRepository = questionsRepository;
     }
-    @CrossOrigin
     @GetMapping(value = "/quiz/{quizId}/question/{questionNumber}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuizQuestionByQuestionNumber(@PathVariable String quizId, @PathVariable Integer questionNumber){
@@ -23,7 +23,6 @@ public class QuestionsController {
         return new Gson().toJson(foundQuestion.getRequestResponse());
     }
 
-    @CrossOrigin
     @GetMapping(value = "/question/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuestionById(@PathVariable String id){
@@ -32,7 +31,6 @@ public class QuestionsController {
         return new Gson().toJson(foundQuestion.getRequestResponse());
     }
 
-    @CrossOrigin
     @GetMapping(value = "/question/{id}/check/{guess}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String checkQuestionAnswer(@PathVariable String id, @PathVariable Integer guess){

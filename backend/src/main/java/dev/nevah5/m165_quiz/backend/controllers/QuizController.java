@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost")
 public class QuizController {
     QuizRepository quizRepository;
 
@@ -20,7 +21,6 @@ public class QuizController {
         this.quizRepository = quizRepository;
     }
 
-    @CrossOrigin
     @GetMapping(value = "/quizzes", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuizzes(@RequestParam(name = "search", required = false) String searchTag){
@@ -28,7 +28,6 @@ public class QuizController {
         return new Gson().toJson(quizRepository.findAll());
     }
 
-    @CrossOrigin
     @GetMapping(value = "/quiz/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuizById(@PathVariable String id){
@@ -37,7 +36,6 @@ public class QuizController {
         return new Gson().toJson(foundQuiz);
     }
 
-    @CrossOrigin
     @GetMapping(value = "/quiz/top", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getNewestQuiz(){
