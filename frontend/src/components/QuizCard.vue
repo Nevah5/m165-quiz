@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const props = defineProps(["data"]);
+const data = props.data;
 </script>
 
 <template>
@@ -15,8 +16,11 @@ const props = defineProps(["data"]);
 </template>
 
 <style scoped>
-.card {
+a {
   text-decoration: none;
+}
+
+.card {
   color: black;
   border: black solid 3px;
   border-radius: 0.5em;

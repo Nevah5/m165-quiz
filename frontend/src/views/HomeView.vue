@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import NewestQuiz from "@/components/NewestQuiz.vue";
 import QuizzesSearch from "@/components/QuizzesSearch.vue";
 </script>
 
@@ -8,6 +9,7 @@ import QuizzesSearch from "@/components/QuizzesSearch.vue";
       <p>Wilkommen bei:</p>
       <h1>Wer wird Millionär</h1>
     </div>
+    <NewestQuiz />
     <QuizzesSearch />
   </main>
 </template>
