@@ -3,6 +3,7 @@ package dev.nevah5.m165_quiz.backend.controllers;
 import com.google.gson.Gson;
 import dev.nevah5.m165_quiz.backend.models.Quiz;
 import dev.nevah5.m165_quiz.backend.repositories.QuizRepository;
+import jakarta.websocket.server.PathParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +23,9 @@ public class QuizController {
     @CrossOrigin
     @GetMapping(value = "/quizzes", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public String getQuizzes(){
-        List<Quiz> foundQuizzes = quizRepository.findAll();
-        return new Gson().toJson(foundQuizzes);
+    public String getQuizzes(@RequestParam(name = "search", required = false) String searchTag){
+        if(searchTag != null && !searchTag.isBlank()) return new Gson().toJson(quizRepository.findQuizzesByTagsContains(searchTag));
+        return new Gson().toJson(quizRepository.findAll());
     }
 
     @CrossOrigin

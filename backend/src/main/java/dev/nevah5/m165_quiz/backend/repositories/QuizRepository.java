@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QuizRepository extends MongoRepository<Quiz, String> {
     Quiz findQuizById(String id);
+    Quiz findQuizzesByTagsContains(String tag);
 }
