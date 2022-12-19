@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import WinningsProgress from "./components/WinningsProgress.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <WinningsProgress :current="15" />
+  <RouterView />
 </template>
 
 <style scoped></style>
