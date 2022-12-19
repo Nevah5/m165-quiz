@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Document(collection = "quizzes")
 public class Quiz {
@@ -22,4 +21,7 @@ public class Quiz {
     @Getter
     @NonNull
     private Integer createdOn;
+    @Getter
+    @NonNull
+    private String[] tags;
 }

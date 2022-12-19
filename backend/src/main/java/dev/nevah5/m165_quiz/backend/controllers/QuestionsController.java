@@ -5,10 +5,7 @@ import dev.nevah5.m165_quiz.backend.models.Question;
 import dev.nevah5.m165_quiz.backend.repositories.QuestionsRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
@@ -17,6 +14,7 @@ public class QuestionsController {
     public QuestionsController(QuestionsRepository questionsRepository){
         this.questionsRepository = questionsRepository;
     }
+    @CrossOrigin
     @GetMapping(value = "/quiz/{quizId}/question/{questionNumber}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuizQuestionByQuestionNumber(@PathVariable String quizId, @PathVariable Integer questionNumber){
@@ -25,6 +23,7 @@ public class QuestionsController {
         return new Gson().toJson(foundQuestion.getRequestResponse());
     }
 
+    @CrossOrigin
     @GetMapping(value = "/question/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuestionById(@PathVariable String id){
@@ -33,6 +32,7 @@ public class QuestionsController {
         return new Gson().toJson(foundQuestion.getRequestResponse());
     }
 
+    @CrossOrigin
     @GetMapping(value = "/question/{id}/check/{guess}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String checkQuestionAnswer(@PathVariable String id, @PathVariable Integer guess){

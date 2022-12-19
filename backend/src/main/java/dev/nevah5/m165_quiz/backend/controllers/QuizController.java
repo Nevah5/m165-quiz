@@ -5,10 +5,7 @@ import dev.nevah5.m165_quiz.backend.models.Quiz;
 import dev.nevah5.m165_quiz.backend.repositories.QuizRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collections;
@@ -22,6 +19,7 @@ public class QuizController {
         this.quizRepository = quizRepository;
     }
 
+    @CrossOrigin
     @GetMapping(value = "/quizzes", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuizzes(){
@@ -29,6 +27,7 @@ public class QuizController {
         return new Gson().toJson(foundQuizzes);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/quiz/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuizById(@PathVariable String id){
@@ -37,6 +36,7 @@ public class QuizController {
         return new Gson().toJson(foundQuiz);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/quiz/top", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getNewestQuiz(){
