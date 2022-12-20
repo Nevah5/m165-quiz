@@ -29,12 +29,7 @@ const search = () => {
   }
   clearTimeout(timeout);
   timeout = setTimeout(() => {
-    fetch(`http://localhost:8080/quizzez?search=${searchString}`, {
-      mode: "cors",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
+    fetch(`http://localhost:8080/quizzes?search=${searchString}`)
       .then((d) => d.json())
       .then((json) => (data.value = json));
   }, 600);
