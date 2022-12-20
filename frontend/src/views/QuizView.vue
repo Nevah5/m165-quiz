@@ -3,6 +3,25 @@ import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
 import router from "@/router";
 
+const values = [
+  "1'000'000",
+  "500'000",
+  "125'000",
+  "64'000",
+  "32'000",
+  "16'000",
+  "8'000",
+  "4'000",
+  "2'000",
+  "1'000",
+  "500",
+  "300",
+  "200",
+  "100",
+  "50",
+];
+const currencySymbol = "CHF";
+
 interface Quiz {
   id: string;
   name: string;
@@ -11,9 +30,18 @@ interface Quiz {
   tags: string[];
 }
 
+interface LeaderboardScore {
+  username: string;
+  quizId: string;
+  progress: number;
+  startedOn: number;
+  endedOn: number;
+}
+
 const route = useRoute();
 const id = route.params.id;
 var data = ref<null | Quiz>();
+var leaderBoard = ref<null | LeaderboardScore[]>();
 const quizFound = ref(true);
 var nameValue = "";
 
@@ -24,6 +52,12 @@ onMounted(() => {
       quizFound.value = false;
     })
     .then((json) => (data.value = json));
+
+  fetch(`http://localhost:8080/games/${id}`)
+    .then((d) => {
+      if (d.ok) return d.json();
+    })
+    .then((json) => (leaderBoard.value = json));
 });
 
 const submit = () => {
@@ -50,6 +84,23 @@ const submit = () => {
       />
       <button type="submit">Start Quiz</button>
     </form>
+    <table class="leaderboard" v-if="leaderBoard">
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Winnings</th>
+        <th>Time</th>
+        <th>Date</th>
+      </tr>
+      <tr v-for="(score, index) in leaderBoard">
+        <td>{{ index + 1 }}</td>
+        <td>{{ score.username }}</td>
+        <td>{{ currencySymbol }} {{ values[15 - score.progress] }}</td>
+        <td>{{ (score.endedOn - score.startedOn) / 1000 }}s</td>
+        <td>{{ new Date(score.endedOn).toLocaleString("de-CH") }}</td>
+      </tr>
+    </table>
+    <p v-else>Leaderboard is loading...</p>
   </main>
   <main v-else>
     <a href="/">&lt; Home</a>
@@ -68,7 +119,7 @@ a {
 }
 
 main {
-  height: 100vh;
+  padding-top: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,5 +155,17 @@ main form.actions button {
   padding: 5px 10px;
   border: solid black 3px;
   font-weight: bold;
+}
+
+table {
+  margin-top: 30px;
+}
+
+td,
+th {
+  padding: 0 10px;
+}
+table tr th {
+  text-align: left;
 }
 </style>
