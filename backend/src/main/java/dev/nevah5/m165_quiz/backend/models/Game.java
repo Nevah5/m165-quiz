@@ -3,28 +3,28 @@ package dev.nevah5.m165_quiz.backend.models;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-
+@Document(collection = "games")
 public class Game {
-    @MongoId
+    @Id
     @Getter
     @Generated
     private String id;
     @Getter
     @Setter
+    private String quizId;
+    @Getter
+    @Setter
     private String username;
     @Getter
     @Setter
-    private String price;
+    private Integer progress;
     @Setter
     @Getter
-    private Integer maxQuestionNumber;
-    @Getter
+    private Integer startedOn;
     @Setter
-    private Date started;
     @Getter
-    @Setter
-    private Date end;
+    private Integer endedOn;
 }
