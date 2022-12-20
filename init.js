@@ -90,7 +90,7 @@ db.questions.insertMany([
     "a2": "...Firebase Firestore.",
     "a3": "...SQL.",
     "a4": "...Financing.",
-    "c": 1,
+    "c": 2,
   },
   {
     "n": 14,

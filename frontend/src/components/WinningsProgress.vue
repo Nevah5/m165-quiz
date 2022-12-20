@@ -21,7 +21,7 @@ const props = defineProps(["current"]);
 </script>
 
 <template>
-  <ul>
+  <ul class="winningprogress">
     <li
       v-for="(value, index) in values"
       :key="value"
