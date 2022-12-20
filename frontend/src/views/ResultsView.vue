@@ -43,6 +43,13 @@ const gameData = {
   endedOn,
   progress,
 };
+
+fetch("http://localhost:8080/games", {
+  method: "POST",
+  body: JSON.stringify(gameData),
+}).then((d) => {
+  if (d.ok) localStorage.clear();
+});
 </script>
 
 <template>
