@@ -54,10 +54,7 @@ const click = (clickedAnswer: number) => {
     .then((json) => {
       hasAnsweredCorrectly.value = json.answer;
       if (!hasAnsweredCorrectly.value) {
-        localStorage.setItem(
-          "currentQuestion",
-          currentQuestion.value.toString()
-        );
+        localStorage.setItem("currentQuestion", "0");
         localStorage.setItem("endedOn", new Date().getTime().toString());
         router.push(`/quiz/${id}/results`);
       }
@@ -250,6 +247,11 @@ div.question h1 {
   justify-content: center;
   align-items: center;
   color: #e37d1c;
+  font-size: 1.3rem;
+}
+
+div.question h1 span {
+  max-width: 80%;
 }
 
 div.question div.answergrid p {
@@ -264,6 +266,8 @@ div.question div.answergrid p {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.9rem;
+  text-align: center;
 }
 div.question div.answergrid p:not(.correct):not(.wrong):not(.a):hover {
   background: radial-gradient(#f58a0a, #d5761f, #faf7b5);

@@ -95,7 +95,7 @@ const submit = () => {
       <tr v-for="(score, index) in leaderBoard">
         <td>{{ index + 1 }}</td>
         <td>{{ score.username }}</td>
-        <td>{{ currencySymbol }} {{ values[15 - score.progress] }}</td>
+        <td>{{ currencySymbol }} {{ values[15 - score.progress] || "0" }}</td>
         <td>{{ (score.endedOn - score.startedOn) / 1000 }}s</td>
         <td>{{ new Date(score.endedOn).toLocaleString("de-CH") }}</td>
       </tr>

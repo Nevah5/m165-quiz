@@ -55,7 +55,7 @@ fetch("http://localhost:8080/games", {
 <template>
   <main>
     <h3>Herzlichen Glückwunsch {{ username }}! Du hast</h3>
-    <h1>{{ currencySymbol }} {{ values[15 - progress] }}</h1>
+    <h1>{{ currencySymbol }} {{ values[15 - progress] || "0" }}</h1>
     <h3>gewonnen!</h3>
     <h2>Dauer: {{ gameDuration }}s</h2>
     <p>Dein Spiel wurde erfasst.</p>
