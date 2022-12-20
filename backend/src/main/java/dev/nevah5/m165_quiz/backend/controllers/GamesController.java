@@ -15,10 +15,11 @@ public class GamesController {
     public GamesController(GamesRepository gamesRepository){
         this.gamesRepository = gamesRepository;
     }
-    @PostMapping(value = "/games", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/games", produces = "application/json", consumes = "text/plain")
     @ResponseStatus(HttpStatus.OK)
-    public String getQuestionById(@RequestBody Game gameData){
-        gamesRepository.save(gameData);
-        return new Gson().toJson(gameData);
+    public String getQuestionById(@RequestBody String gameData){
+        Game g = new Gson().fromJson(gameData, Game.class);
+        gamesRepository.save(g);
+        return new Gson().toJson(g);
     }
 }

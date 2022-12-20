@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigInteger;
+
 @Document(collection = "games")
 public class Game {
     @Id
@@ -23,8 +25,8 @@ public class Game {
     private Integer progress;
     @Setter
     @Getter
-    private Integer startedOn;
+    private BigInteger startedOn;
     @Setter
     @Getter
-    private Integer endedOn;
+    private BigInteger endedOn;
 }
