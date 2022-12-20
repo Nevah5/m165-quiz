@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost")
+@CrossOrigin
 public class QuizController {
     QuizRepository quizRepository;
 
@@ -24,7 +24,8 @@ public class QuizController {
     @GetMapping(value = "/quizzes", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String getQuizzes(@RequestParam(name = "search", required = false) String searchTag){
-        if(searchTag != null && !searchTag.isBlank()) return new Gson().toJson(quizRepository.findQuizzesByTagsContains(searchTag));
+        if(searchTag != null && !searchTag.isBlank()) return new Gson()
+                .toJson(quizRepository.findQuizzesByTagsContaining(searchTag));
         return new Gson().toJson(quizRepository.findAll());
     }
 

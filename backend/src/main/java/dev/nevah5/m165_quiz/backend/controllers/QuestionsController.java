@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@CrossOrigin("http://localhost")
+@CrossOrigin("*")
 public class QuestionsController {
     QuestionsRepository questionsRepository;
     public QuestionsController(QuestionsRepository questionsRepository){
