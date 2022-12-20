@@ -6,6 +6,7 @@ import dev.nevah5.m165_quiz.backend.repositories.GamesRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @CrossOrigin
@@ -28,6 +29,7 @@ public class GamesController {
     @ResponseStatus(HttpStatus.OK)
     public String getGamesById(@PathVariable String id){
         List<Game> games = gamesRepository.getGamesByQuizId(id);
+        Collections.sort(games, (g1, g2) -> g2.getProgress() - g1.getProgress());
         return new Gson().toJson(games);
     }
 }
