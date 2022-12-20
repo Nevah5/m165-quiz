@@ -23,7 +23,12 @@ const hasAnsweredCorrectly = ref(false);
 
 if (localStorage.getItem("username") === null) router.push(`/quiz/${id}`);
 
-onMounted(() => fetchQuestion());
+onMounted(() => {
+  fetchQuestion();
+  localStorage.setItem("startedOn", new Date().getTime().toString());
+  localStorage.removeItem("endedOn");
+  localStorage.removeItem("currentQuestion");
+});
 
 const fetchQuestion = () => {
   fetch(`http://localhost:8080/quiz/${id}/question/${currentQuestion.value}`)
@@ -48,10 +53,30 @@ const click = (clickedAnswer: number) => {
     })
     .then((json) => {
       hasAnsweredCorrectly.value = json.answer;
+      if (!hasAnsweredCorrectly.value) {
+        localStorage.setItem(
+          "currentQuestion",
+          currentQuestion.value.toString()
+        );
+        localStorage.setItem("endedOn", new Date().getTime().toString());
+        router.push(`/quiz/${id}/results`);
+      }
     });
 };
+const giveUp = () => {
+  if (!hasAnsweredCorrectly.value) return;
+  localStorage.setItem("currentQuestion", currentQuestion.value.toString());
+  localStorage.setItem("endedOn", new Date().getTime().toString());
+  router.push(`/quiz/${id}/results`);
+};
 const nextQuestion = () => {
-  if (!hasAnsweredCorrectly) return;
+  if (!hasAnsweredCorrectly.value) return;
+  if (currentQuestion.value === 15) {
+    localStorage.setItem("endedOn", new Date().getTime().toString());
+    localStorage.setItem("currentQuestion", currentQuestion.value.toString());
+    router.push(`/quiz/${id}/results`);
+    return;
+  }
   hasAnsweredCorrectly.value = false;
   hasAnswered.value = 0;
   currentQuestion.value++;
@@ -63,7 +88,7 @@ const nextQuestion = () => {
   <main v-if="questionData?.id">
     <div class="question">
       <div class="actions">
-        <button :class="hasAnsweredCorrectly ? '' : 'locked'">
+        <button :class="hasAnsweredCorrectly ? '' : 'locked'" @click="giveUp">
           &lt; Take the money
         </button>
         <button
@@ -71,11 +96,6 @@ const nextQuestion = () => {
           @click="nextQuestion"
         >
           Continue &gt;
-        </button>
-        <button
-          :class="!hasAnsweredCorrectly && hasAnswered !== 0 ? '' : 'locked'"
-        >
-          Results &gt;
         </button>
       </div>
       <h3>Question {{ currentQuestion }}</h3>
@@ -152,6 +172,13 @@ const nextQuestion = () => {
 </template>
 
 <style scoped>
+a {
+  text-decoration: none;
+  color: #e37d1c;
+  background-color: #010a34;
+  padding: 10px 30px;
+  border-radius: 0.5em;
+}
 main {
   display: flex;
   justify-content: center;

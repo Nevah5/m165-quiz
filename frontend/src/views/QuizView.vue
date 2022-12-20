@@ -34,6 +34,7 @@ const submit = () => {
 
 <template>
   <main v-if="quizFound">
+    <a href="/">Zurück</a>
     <h1>{{ data?.name }}</h1>
     <p>
       by {{ data?.createdBy }} -
@@ -51,11 +52,21 @@ const submit = () => {
     </form>
   </main>
   <main v-else>
+    <a href="/">&lt; Home</a>
     <h1>This quiz was not found.</h1>
   </main>
 </template>
 
 <style scoped>
+a {
+  text-decoration: none;
+  color: #e37d1c;
+  background-color: #010a34;
+  padding: 10px 30px;
+  border-radius: 0.5em;
+  margin-bottom: 15px;
+}
+
 main {
   height: 100vh;
   display: flex;
