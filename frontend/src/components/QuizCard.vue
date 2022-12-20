@@ -26,6 +26,7 @@ a {
 }
 
 .card {
+  background-color: white;
   color: black;
   border: black solid 3px;
   border-radius: 0.5em;
